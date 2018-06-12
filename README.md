@@ -14,11 +14,11 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|reference|null: false, foreign_key: true|
 |name|string|null: false|
 
 ### Association
 - has_many :members
+- has_many :users
 
 ## membersテーブル
 
@@ -34,23 +34,21 @@ Things you may want to cover:
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false|
-|user_name|string|null: false|
+|name|string|null: false, index: true|
 |mail|string|null: false|
 
 ### Association
 - has_many :members
 - has_many :messsages
-- has_many :groups,through :members
+- has_many :groups, through :members
 
 ### messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|messsege_id|reference|null: false|
-|body|text|
-|image_url|string|
-|group_id|reference|null: false|
-|user_id|reference|null: false|
+|body|text|foreign_key: true|
+|image_url|string|foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
