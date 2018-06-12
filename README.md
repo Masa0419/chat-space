@@ -10,23 +10,22 @@ Things you may want to cover:
 
 # DB設計
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|group_name|string|null: false|
+|group_id|reference|null: false, foreign_key: true|
+|name|string|null: false|
 
 ### Association
-- has_one :group
-- belongs_to :user
+- has_many :members
 
 ## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -35,7 +34,7 @@ Things you may want to cover:
 ### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|reference|null: false|
 |user_name|string|null: false|
 |mail|string|null: false|
 
@@ -44,13 +43,14 @@ Things you may want to cover:
 - has_many :messsages
 - has_many :groups,through :members
 
-### messageテーブル
+### messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|messsege_id|integer|null: false|
-|body|text|null: false|
-|group_id|integer|null: false|
-|user_id|integer|null: false|
+|messsege_id|reference|null: false|
+|body|text|
+|image_url|string|
+|group_id|reference|null: false|
+|user_id|reference|null: false|
 
 ### Association
 - belongs_to :user
