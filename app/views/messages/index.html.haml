@@ -1,52 +1,32 @@
+.topbar
+  チャットグループが作成されました
+.sidebar
+  .header
+    .header__user-name
+      chiha
+      .header__icon
+        = link_to do
+          = fa_icon 'edit'
+        = link_to do
+          = fa_icon 'cog'
 
-!!!
-%html{lang: "ja"}
-%head
-/ %meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
-%title>ChatSpace
-/ <link rel="stylesheet" media="all" href="/assets/.css" data-turbolinks-track="reload" />
-/ <script src="/assets/application-11431a2aeef6ab6765ca93b518c6f8650fcffef3a41e7f77cc09f002e32bfd88.js" data-turbolinks-track="reload"></script>
-%body
-.notification
-  .notice 作成
-.wrapper
-  .side-bar
-    .header
-      %h3.header__name tester1
-      %ul.header__lists
-        %li.list
-        %a(href= "/groups/new")
-          %i."fa fa-pencil-square-o icon" ::before
-        %li.list
-        %a(href= "/users/6872/edit")
-      /     / %i."fa fa-cog icon"
-    .groups
-      .group
-        / %a(href="..."})
-        .group__name  test
-        .group__message  ああああ
-  .chat
-    .header
-      .left-header
-        .left-header__title グループ名
-        %ul.left-header__members
-          
-          Member : 
-          
-          %li.member tester1
-      .right-header
-        %a.right-header__button Edit
-    .messages
-      .message
-        .upper_message
-          .upper_message__user-name testman
-          .upper_message__date 2100/09/09
-        .lower_message
-          %p.lower_message__content
-          ないようー！
-    .form
-      %form#newmessage.js-form
-        %input.form__message#message_content{:type =>"text", :placeholder => "type a message"}
-          .form__mask
-            %label.form__mask__image
-          %input.form__submit{:type => "submit", :value => "Send"}
+  =render 'group'
+
+.main
+  .header
+    .leftheader
+      .leftheader__group-name
+        sample
+      .leftheader__group-member
+        Members: who?
+    .rightheader
+      =link_to 'Edit'
+
+  =render 'message'
+
+  .form
+    %input.form__message{type: "text", placeholder: "type a message", name: "text"}
+      %label.form__image{for: "img"}
+        =fa_icon 'image'
+        %input{type:"file", id: "img", style:"display:none;"}
+      %input.form__send{type: "submit", value: "Send"}
