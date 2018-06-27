@@ -7,22 +7,22 @@
     height: 100px;
     padding: 0 40px;
 
-    .leftheader {
+    .left-header {
       float: left;
 
-      .leftheader__group-name {
+      .left-header__group-name {
         font-size: 20px;
         color: #333333;
         margin: 35px 0 15px;
       }
 
-      .leftheader__group-member {
+      .left-header__group-member {
         font-size: 12px;
         color: #999999;
       }
     }
 
-    .rightheader {
+    .right-header {
       float: right;
       height: 40px;
       margin-top: 28px;
