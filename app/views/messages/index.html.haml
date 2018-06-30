@@ -1,16 +1,6 @@
 .topbar
   チャットグループが作成されました
-.sidebar
-  .header
-    .header__user-name
-      chiha
-      .header__icon
-        = link_to do
-          = fa_icon 'edit'
-        = link_to do
-          = fa_icon 'cog'
-
-  =render 'group'
+=render 'side'
 
 .main
   .header
@@ -24,9 +14,4 @@
 
   =render 'message'
 
-  .form
-    %input.form__message{type: "text", placeholder: "type a message", name: "text"}
-      %label.form__image{for: "img"}
-        =fa_icon 'image'
-        %input{type:"file", id: "img", style:"display:none;"}
-      %input.form__send{type: "submit", value: "Send"}
+  =render 'form'
