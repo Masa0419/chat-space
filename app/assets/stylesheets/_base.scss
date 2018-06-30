@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+}
+
+p {
+  margin: 0;
+}
+
+.awesome{
+  font-family: FontAwesome; //フォント指定する
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  font-size:0;
+  clear: both;
+}

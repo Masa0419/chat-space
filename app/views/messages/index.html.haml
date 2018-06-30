@@ -1,0 +1,17 @@
+.topbar
+  チャットグループが作成されました
+=render 'side'
+
+.main
+  .header
+    .left-header
+      .left-header__group-name
+        sample
+      .left-header__group-member
+        Members: who?
+    .right-header
+      =link_to 'Edit'
+
+  =render 'message'
+
+  =render 'form'
