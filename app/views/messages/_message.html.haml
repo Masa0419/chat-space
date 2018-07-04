@@ -1,9 +1,9 @@
 .messagebox
   .messagebox__header
     .messagebox__header-list
-      .user-name 
+      .user-name
         = message.user.name
-      .post-time 
-        = format_postes_time(message.created_at)
+      .post-time
+        = message.created_at
   .messagebox__text
-    hello
+    = message.content
