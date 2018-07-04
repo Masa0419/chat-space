@@ -82,6 +82,13 @@
       width: calc(100% - 150px);
     }
 
+    .form_maskb{
+      background-color: $white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+    }
+
     .form__image {
       background-color: $white;
       line-height: 50px;
