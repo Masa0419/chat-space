@@ -1,11 +1,12 @@
 .sidebar
   .header
     .header__user-name
-      tester
+      = current_user.name
       .header__icon
         = link_to do
-          = fa_icon 'edit'
-        = link_to do
-          = fa_icon 'cog'
+          = link_to new_group_path do
+            = fa_icon 'edit'
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
 
-  =render 'group'
+  =render 'messages/group'
