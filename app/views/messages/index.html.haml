@@ -1,17 +1,19 @@
 .topbar
-  
+
 =render 'side'
 
 .main
   .header
     .left-header
       .left-header__group-name
-        sample
+        = @group.name
       .left-header__group-member
-        Members: who?
+        Members:
+        - @group.group_users.each do |group_user|
+          = group_user.user.name
     .right-header
       =link_to 'Edit'
 
-  =render @messages
+  =render partial: 'message' ,collection: @messages
 
   =render 'form'
