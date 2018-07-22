@@ -4,6 +4,6 @@
       .user-name
         = message.user.name
       .post-time
-        = message.created_at
+        = simple_time(message.created_at)
       .messagebox__text
         = message.content
