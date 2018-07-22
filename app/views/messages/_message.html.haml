@@ -1,9 +1,9 @@
 .messagebox
-  .messagebox__header
-    .messagebox__header-list
-      .user-name
-        = message.user.name
-      .post-time
-        = simple_time(message.created_at)
-      .messagebox__text
-        = message.content
+  .user-name
+    = message.user.name
+  .post-time
+    = simple_time(message.created_at)
+  .messagebox__list
+    .messagebox__text
+      = message.content
+    .message_image
