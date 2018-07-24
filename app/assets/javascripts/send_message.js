@@ -45,6 +45,8 @@ $(function(){
     })
     .fail(function() {
       alert('error');
+      $('.form__submit').attr('disabled', false);
+      $('.new_message')[0].reset();
     })
   })
 });
