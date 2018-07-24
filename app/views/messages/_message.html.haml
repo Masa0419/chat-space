@@ -4,5 +4,8 @@
   .post-time
     = simple_time(message.created_at)
   .messagebox__list
-    .messagebox__text
-      = message.content
+    - if message.content.present?
+      .messagebox__text
+        = message.content
+    = image_tag message.image.url class: 'messagebox__image' if message.image.present?
+

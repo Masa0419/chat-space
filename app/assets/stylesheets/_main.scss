@@ -4,7 +4,7 @@
   float: left;
 
   .header {
-    height: 100px;
+    height: calc(28px + 40px + 28px);
     padding: 0 40px;
 
     .left-header {
@@ -86,7 +86,7 @@
     .form_mask{
       background-color: $white;
       float: left;
-      height: 50px;
+      line-height: 50px;
       padding-right: 10px;
     }
 
