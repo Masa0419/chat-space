@@ -75,24 +75,24 @@
     padding: 20px 40px;
     clear:both;
 
-    .form__message {
-      padding-left: 10px;
-      height: 50px;
-      border: none;
-      float: left;
-      width: calc(100% - 150px - 25px - 30px);
-    }
+      .form__message {
+        padding-left: 10px;
+        height: 50px;
+        border: none;
+        float: left;
+        width: calc(100% - 150px - 25px - 30px);
+      }
 
-    .form_mask{
-      background-color: $white;
-      float: left;
-      line-height: 50px;
-      padding-right: 10px;
-    }
+      .form_mask{
+        background-color: $white;
+        float: left;
+        line-height: 50px;
+        padding-right: 10px;
+      }
 
-    .hidden{
-      display: none;
-    }
+      .hidden{
+        display: none;
+      }
 
     .form__submit {
       background-color: $lightblue;
