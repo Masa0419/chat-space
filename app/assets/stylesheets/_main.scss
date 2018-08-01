@@ -1,5 +1,5 @@
 .main {
-  height: 100%;
+  height: 100vh;
   width: calc(100% - 300px);
   float: left;
 
@@ -39,16 +39,16 @@
   }
 
   .message__main{
-    height: calc(100vh - 100px - 46px - 70px);
+    height: calc(100vh - 100px - 50px);
+    width: calc(100vw - 300px);
     overflow-y:scroll;
-    padding: 46px 46px 0;
-    width: calc(100vw -300px - 85px);
+    padding: 0 40px;
     background-color: #FAFAFA;
     border-top: solid thin #eeeeee;
-    overflow: auto;
-    clear: both;
+
     .messagebox {
      color: #434A54;
+     border: #eeeeee;
       .user-name {
         padding-right: 10px;
         font-size: 16px;
@@ -73,34 +73,32 @@
     background-color: $lightgray;
     height: 50px;
     padding: 20px 40px;
-    clear:both;
 
-      .form__message {
-        padding-left: 10px;
-        height: 50px;
-        border: none;
-        float: left;
-        width: calc(100% - 150px - 25px - 30px);
-      }
+    .form__message {
+      padding-left: 10px;
+      height: 50px;
+      border: none;
+      float: left;
+      width: calc(100% - 150px);
+    }
 
-      .form_mask{
-        background-color: $white;
-        float: left;
+    .form__mask{
+      background-color: $white;
+      .icon{
         line-height: 50px;
-        padding-right: 10px;
       }
 
       .hidden{
         display: none;
       }
+    }
 
     .form__submit {
       background-color: $lightblue;
-      width: 150px;
-      padding: 0 50px;
+      padding: 0 20px;
       line-height: 50px;
       color: $white;
-      float: left;
+      float: right;
       border: none;
       margin-left: 15px;
       font-size: 16px;
