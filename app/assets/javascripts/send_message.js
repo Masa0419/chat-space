@@ -1,5 +1,5 @@
 $(function(){
-	function buildHTML(message){
+  function buildHTML(message){
     var img = message.image ? `<img src= ${message.image}>` : "";
     var html = `<div class=messagebox>
                   <div class=user-name>
@@ -22,12 +22,12 @@ $(function(){
     $('.message__main').animate({scrollTop: $('.message__main')[0].scrollHeight},'fast');
   }
 
-	$('#new_message').on('submit', function(e){
-		e.preventDefault();
-		var formData = new FormData(this);
-		var url = $(this).attr('action');
+  $('#new_message').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
 
-  	$.ajax({
+    $.ajax({
       url: url,
       type: "POST",
       data: formData,
