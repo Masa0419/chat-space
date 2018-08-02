@@ -1,9 +1,11 @@
 .messagebox
-  .messagebox__header
-    .messagebox__header-list
-      .user-name
-        = message.user.name
-      .post-time
-        = message.created_at
+  .user-name
+    = message.user.name
+  .post-time
+    = simple_time(message.created_at)
+  .messagebox__list
+    - if message.content.present?
       .messagebox__text
         = message.content
+    = image_tag message.image.url class: 'messagebox__image' if message.image.present?
+

@@ -1,4 +1,4 @@
-.topbar
+/ .topbar
 
 =render 'side'
 
@@ -14,6 +14,7 @@
     .right-header
       =link_to 'Edit'
 
-  =render partial: 'message' ,collection: @messages
+  .message__main
+    =render partial: 'message', collection: @messages
 
   =render 'form'
