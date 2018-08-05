@@ -19,12 +19,11 @@
       #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{for: "chat_group_チャットメンバー"}
-        チャットメンバー
+      =f.label :name, 'チャットメンバー', class:'chat-group-form__label'
     #chat-group-users
       #chat-group-user-.chat-group-user.clearfix
         %input{ name: "group[user_ids][]", type: "hidden", value: "#{current_user.id}"}
-        %p.chat-group-user__name 
+        %p.chat-group-user__name
           =current_user.name
   .chat-group-form__field.clearfix
     .chat-group-form__field--left

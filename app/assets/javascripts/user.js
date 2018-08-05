@@ -36,7 +36,6 @@ $(function(){
 
   $("#user-search-field").on("keyup", function(){
     var input = $(this).val();
-    console.log(input);
     $.ajax({
     	type: "GET",
     	url:"/users",
@@ -59,14 +58,14 @@ $(function(){
     })
   });
 
-  $(document).on('click', '.user-search-add', function(){
+  $('#user-search-result').on('click', '.chat-group-user__btn--add', function(){
     var userId = $(this).data("user-id")
     var userName = $(this).data("user-name")
     $(this).parent().remove();
     addUserToGroup(userId, userName);
   })
 
-  $(document).on('click', '.js-remove-btn', function(){
+  $('#chat-group-users').on('click', '.js-remove-btn', function(){
     $($(this).parent()).remove();
   })
 });
