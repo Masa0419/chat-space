@@ -59,13 +59,13 @@ $(function(){
       data: { id: message_id },
       dataType: 'json',
     })
-    .done(function(data) {
+    .always(function(data) {
       var html;
       data.forEach(function(message){
         html = buildHTML(message);
       });
-      $('.chat-messages').append(html);
-      scrollTop();
+      $('.messagebox').append(html);
+      scroll();
     })
     .fail(function(){
       alert('error');

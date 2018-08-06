@@ -1,7 +1,9 @@
-json.messages @messages.each do |message|
-  json.name     message.user.name
-  json.date     simple_time(@message.created_at)
-  json.body     message.body
-  json.image    message.image
-  json.id       message.id
+if @new_message.present?
+  json.array! @new_message do |message|
+    json.content message.content
+    json.name    message.user.name
+    json.image   message.image.url
+    json.date    message.created_at.to_s(:datetime)
+    json.id      message.id
+  end
 end
