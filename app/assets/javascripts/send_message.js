@@ -48,4 +48,27 @@ $(function(){
       $('.new_message')[0].reset();
     })
   })
+  $(function(){
+    setInterval(update, 5000);
+  });
+   function update(){
+    var message_id = $('.chat-message:last').data('message-id');
+     $.ajax({
+      url: location.href,
+      type: 'GET',
+      data: { id: message_id },
+      dataType: 'json',
+    })
+    .done(function(data) {
+      var html;
+      data.forEach(function(message){
+        html = buildHTML(message);
+      });
+      $('.chat-messages').append(html);
+      scrollTop();
+    })
+    .fail(function(){
+      alert('error');
+    })
+  }
 });
