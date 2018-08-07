@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     var img = message.image ? `<img src= ${message.image}>` : "";
-    var html = `<div class=messagebox>
+    var html = `<div class= 'messagebox' data-id= ${message.id}>
                   <div class=user-name>
                     ${message.user_name}
                   </div>
@@ -48,4 +48,34 @@ $(function(){
       $('.new_message')[0].reset();
     })
   })
+  $(function(){
+    setInterval(update, 5000);
+  });
+   function update(){
+    if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+      if($('.message__main')[0]){
+        var message_id = $('.messagebox:last').data('id') || 0;
+      }
+      $.ajax({
+       url: location.pathname,
+       type: 'GET',
+       data: {
+        message: { id: message_id }
+       },
+       dataType: 'json'
+      })
+      .always(function(messages){
+        if (messages.length > 0){
+          messages.forEach(function(message){
+            var html = buildHTML(message);
+            $('.message__main').append(html)
+            scroll();
+          });
+        }
+      });
+    }
+    else {
+      clearInterval(interval)
+    }
+  }
 });
