@@ -52,29 +52,30 @@ $(function(){
     setInterval(update, 5000);
   });
    function update(){
-    if($('.message__main')[0]){
-      var message_id = $('.messagebox:last').data('id');
-      var url = $(this).attr('baseURI')
+    if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+      if($('.message__main')[0]){
+        var message_id = $('.messagebox:last').data('id') || 0;
+      }
+      $.ajax({
+       url: location.pathname,
+       type: 'GET',
+       data: {
+        message: { id: message_id }
+       },
+       dataType: 'json'
+      })
+      .always(function(messages){
+        if (messages.length > 0){
+          messages.forEach(function(message){
+            var html = buildHTML(message);
+            $('.message__main').append(html)
+            scroll();
+          });
+        }
+      });
     }
     else {
-      var message_id = 0
+      clearInterval(interval)
     }
-    $.ajax({
-     url: url,
-     type: 'GET',
-     data: {
-      message: { id: message_id }
-     },
-     dataType: 'json'
-    })
-    .always(function(messages){
-      if (messages.length > 0){
-        messages.forEach(function(message){
-          var html = buildHTML(message);
-          $('.message__main').append(html)
-          scroll();
-        });
-      }
-    });
   }
 });
