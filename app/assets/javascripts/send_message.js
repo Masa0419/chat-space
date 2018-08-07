@@ -52,23 +52,29 @@ $(function(){
     setInterval(update, 5000);
   });
    function update(){
-    var message_id = $('.chat-message:last').data('message-id');
-     $.ajax({
-      url: location.href,
-      type: 'GET',
-      data: { id: message_id },
-      dataType: 'json',
+    if($('.message__main')[0]){
+      var message_id = $('.messagebox:last').data('id');
+      var url = $(this).attr('baseURI')
+    }
+    else {
+      var message_id = 0
+    }
+    $.ajax({
+     url: url,
+     type: 'GET',
+     data: {
+      message: { id: message_id }
+     },
+     dataType: 'json'
     })
-    .always(function(data) {
-      var html;
-      data.forEach(function(message){
-        html = buildHTML(message);
-      });
-      $('.messagebox').append(html);
-      scroll();
-    })
-    .fail(function(){
-      alert('error');
-    })
+    .always(function(messages){
+      if (messages.length > 0){
+        messages.forEach(function(message){
+          var html = buildHTML(message);
+          $('.message__main').append(html)
+          scroll();
+        });
+      }
+    });
   }
 });
