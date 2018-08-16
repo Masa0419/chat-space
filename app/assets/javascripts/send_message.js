@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(message){
+    var content = message.content ?  `${ message.content }` : ''
     var img = message.image ? `<img src= ${message.image}>` : "";
     var html = `<div class= 'messagebox' data-id= ${message.id}>
                   <div class=user-name>
@@ -10,7 +11,7 @@ $(function(){
                   </div>
                   <div class=messagebox__list>
                     <div class=messagebox__text>
-                      ${message.content}
+                    ${content}
                     </div>
                     ${ img }
                   </div>
@@ -34,7 +35,7 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-     })
+    })
     .done(function(data){
       var html = buildHTML(data);
       $('.message__main').append(html)
