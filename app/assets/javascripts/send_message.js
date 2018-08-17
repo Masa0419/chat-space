@@ -37,8 +37,15 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.message__main').append(html)
+    console.log(data);
+      if (data.content === null || data.image ===null){
+        var html = buildHTML(data);
+        $('.message__main').append(html)
+        $('.form__submit').attr('disabled', false);
+        $('.new_message')[0].reset();
+        scroll()
+      }
+      alert('error');
       $('.form__submit').attr('disabled', false);
       $('.new_message')[0].reset();
       scroll()
@@ -49,9 +56,11 @@ $(function(){
       $('.new_message')[0].reset();
     })
   })
+
   $(function(){
     setInterval(update, 5000);
   });
+  
    function update(){
     if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
       if($('.message__main')[0]){
