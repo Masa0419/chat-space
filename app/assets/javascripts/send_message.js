@@ -37,18 +37,17 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-    console.log(data);
-      if (data.content === null || data.image ===null){
+      if (data.content == null && data.image == null){
+        alert('error');
+        $('.form__submit').attr('disabled', false);
+        $('.new_message')[0].reset();
+      }else{
         var html = buildHTML(data);
         $('.message__main').append(html)
         $('.form__submit').attr('disabled', false);
         $('.new_message')[0].reset();
         scroll()
       }
-      alert('error');
-      $('.form__submit').attr('disabled', false);
-      $('.new_message')[0].reset();
-      scroll()
     })
     .fail(function() {
       alert('error');
